@@ -15,6 +15,6 @@ make start
 
 Open [localhost/providence/install](http://localhost/providence/install) and follow the instructions. Choose '[DEFAULT] Visual Resources Collection' from the drop-down.
 
-Stop: `docker stop collectiveaccess mariadb`
-Start: `docker start mariadb collectiveaccess`
-Enter container: `docker exec -it collectiveaccess bash`, exit with `Ctrl + D`
+Stop: `docker stop collectiveaccess mariadb`  
+Start: `docker start mariadb collectiveaccess`  
+Enter container: `docker exec -it collectiveaccess bash`, exit with `Ctrl + D`  
