@@ -7,7 +7,7 @@ DB := c_access
 VERSION := 1.7.8
 
 clean:
-	docker rm -f $(CONTAINERS)
+	docker rm -f $(CONTAINERS) \
 	docker rmi -f $(IMAGES)
 
 create_network:
@@ -18,7 +18,7 @@ create_volume:
 
 create_db:
 	docker run --name mariadb \
-	--network $(NETWORK)
+	--network $(NETWORK) \
 	-v mariadb_ca:/var/lib/mysql \
  	-e MYSQL_ROOT_PASSWORD=root \
 	 -d mariadb:10.3.7

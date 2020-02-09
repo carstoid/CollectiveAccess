@@ -55,7 +55,7 @@ if (!defined("__CA_DB_DATABASE__")) {
 # This value will be used on emails, on the login screen, in window titles, etc.
 #
 if (!defined("__CA_APP_DISPLAY_NAME__")) {
-	define("__CA_APP_DISPLAY_NAME__", "OSCARI");
+	define("__CA_APP_DISPLAY_NAME__", "COLLECTION");
 }
 
 
@@ -113,7 +113,7 @@ if (!defined("__CA_QUEUE_ENABLED__")) {
 # The default value is US/English, which exists in most configurations.
 # 
 if (!defined("__CA_DEFAULT_LOCALE__")) {
-	define("__CA_DEFAULT_LOCALE__", "fi_FI");
+	define("__CA_DEFAULT_LOCALE__", "en_US");
 }
 
 

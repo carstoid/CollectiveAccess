@@ -1,47 +1,22 @@
-# CollectiveAccess
-Docker setup for Finnish CollectiveAccess
+---
+title: Collective Acess
+---
+
+Docker setup for English CollectiveAccess, adapted from `artturimatias/CollectiveAccess`.
 
 ## Installation
 
-Clone this repository:
+Clone this repository and `cd` into it. Then:
 
-	git clone https://github.com/artturimatias/CollectiveAccess.git
-	cd CollectiveAccess
-	
-Let's fetch and start database image:
+```#sh
+make create_db
+make create_volume
+make build
+make start
+```
 
-    make create_db
-    
-Create volume for media files (collectiveaccess-data)
+Open [localhost/providence/install](http://localhost/providence/install) and follow the instructions. Choose '[DEFAULT] Visual Resources Collection' from the drop-down.
 
-    make create_volume
-    
-Finally build  and start CollectiveAccess (both Providence and Pawtucket):
-
-    make build
-    make start
-    
-Aim your browser to: [http://localhost/providence/install](http://localhost/providence/install)
-
-Choose JYU/OSC profile from installation profile lists. Hit start install and wait. 
-
-## Stopping and starting
-
-You can stop CollectiveAccess and Mariadb like this:
-
-    docker stop collectiveaccess
-    docker stop mariadb
-    
-If you want start them again (eg. after reboot):
-
-    docker start mariadb
-    docker start collectiveaccess
-    
-## Accessing Collective settings and code
-
-You can enter to a running CA container like this
-
-    docker exec -it collectiveaccess bash
-    
-Exit is Ctrl + D
-
+Stop: `docker stop collectiveaccess mariadb`
+Start: `docker start mariadb collectiveaccess`
+Enter container: `docker exec -it collectiveaccess bash`, exit with `Ctrl + D`
