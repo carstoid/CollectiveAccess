@@ -1,8 +1,6 @@
----
-title: Collective Acess
----
+# CollectiveAccess
 
-Docker setup for English CollectiveAccess, adapted from `artturimatias/CollectiveAccess`.
+Docker setup for English [CollectiveAccess](https://www.collectiveaccess.org), adapted from `artturimatias/CollectiveAccess`.
 
 ## Installation
 
