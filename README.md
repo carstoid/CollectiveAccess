@@ -20,3 +20,5 @@ Start: `docker start mariadb collectiveaccess`
 Enter container: `docker exec -it collectiveaccess bash`, exit with `Ctrl + D`  
 
 NOTE: as permissions aren't set properly in the dockerfile, you may need to enter the container and run `chown -R www-data: /path/to/tilepics/` before image upload will work
+
+You can back up the data volumes with loomchild/volume-backup
