@@ -1,8 +1,8 @@
 
 IMAGES := $(shell docker images -f "dangling=true" -q)
 CONTAINERS := $(shell docker ps -a -q -f status=exited)
-VOLUME := collectiveaccess-data
-NETWORK := oscari-net
+VOLUME := ca_vol
+NETWORK := ca_net
 DB := c_access
 VERSION := 1.7.8
 
@@ -17,20 +17,21 @@ create_volume:
 	docker volume create $(VOLUME)
 
 create_db:
-	docker run --name mariadb \
+	docker run --name ca_mariadb \
 	--network $(NETWORK) \
-	-v mariadb_ca:/var/lib/mysql \
+	-v ca_mariadb_vol:/var/lib/mysql \
  	-e MYSQL_ROOT_PASSWORD=root \
-	 -d mariadb:10.3.7
+	-d mariadb:10.3.7
 
 build:
 	docker build -t artturimatias/collectiveaccess:$(VERSION) .
 	
 start:
-	docker run -d --name collectiveaccess \
-	-p 80:80 \
+	docker run -d --name ca_app \
+	-p 8246:80 \
 	-v $(VOLUME):/var/www/providence/media \
 	--network $(NETWORK) \
+	-e DB_HOSTNAME=ca_mariadb \
 	-e DB_USER=root \
 	-e DB_PW=root \
 	-e DB_NAME=$(DB) \

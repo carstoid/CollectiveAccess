@@ -54,6 +54,7 @@ RUN cd $CA_PAWTUCKET_DIR && cp setup.php-dist setup.php
 RUN sed -i "s@DocumentRoot \/var\/www\/html@DocumentRoot \/var\/www@g" /etc/apache2/sites-available/000-default.conf
 RUN rm -rf /var/www/html
 run mkdir /$CA_PROVIDENCE_DIR/media/collectiveaccess
+RUN mkdir /$CA_PROVIDENCE_DIR/media/collectiveaccess/tilepics
 run mkdir /$CA_PROVIDENCE_DIR/app/locale/fi_FI
 RUN ln -s /$CA_PROVIDENCE_DIR/media /$CA_PAWTUCKET_DIR/media
 
