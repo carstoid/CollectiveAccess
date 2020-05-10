@@ -43,12 +43,8 @@ The Collective Access Data Model is made up of:
 
 https://gitter.im/collectiveaccess/support?at=5b047c10556e4c40fb61bde2
 
-Changes to make after 5/3 metadata import debugging:
-- change default number of dates allowed for each item (was 1, set to at least 2 before import but likely more would be better esp for bldgs)
-- multipart_id_num setting to 8 chars for occurrences (bldgs)
-- show "undated" to 1 (app.conf?)
-- install nano for troubleshooting
-- set geonames_user from docker run command
-- turn off auto-configured identifier for list items/vocab
-- add occurrence type buildings
-- add date types commissioned, completed 
+
+2020-05-09
+
+- trying to get API endpoints to work
+change documentroot to providence

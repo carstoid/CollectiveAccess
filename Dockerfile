@@ -42,20 +42,21 @@ RUN apt-get install -y php-pear php-dev graphicsmagick libgraphicsmagick1-dev ph
 # better PDF (wkhtmltopdf)
 RUN wget https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb && apt install -y ./wkhtmltox_0.12.5-1.bionic_amd64.deb 
 
-
+# install providence
 RUN curl -SsL https://github.com/collectiveaccess/providence/archive/$CA_PROVIDENCE_VERSION.tar.gz | tar -C /var/www/ -xzf -
 RUN mv /var/www/providence-$CA_PROVIDENCE_VERSION /var/www/providence
 #RUN cd $CA_PROVIDENCE_DIR && cp setup.php-dist setup.php
 
-RUN curl -SsL https://github.com/collectiveaccess/pawtucket2/archive/$CA_PAWTUCKET_VERSION.tar.gz | tar -C /var/www/ -xzf -
-RUN mv $CA_PAWTUCKET_DIR/pawtucket2-$CA_PAWTUCKET_VERSION/* /var/www
-RUN cd $CA_PAWTUCKET_DIR && cp setup.php-dist setup.php
+# install pawtucket (disabled)
+# RUN curl -SsL https://github.com/collectiveaccess/pawtucket2/archive/$CA_PAWTUCKET_VERSION.tar.gz | tar -C /var/www/ -xzf -
+# RUN mv $CA_PAWTUCKET_DIR/pawtucket2-$CA_PAWTUCKET_VERSION/* /var/www
+# RUN cd $CA_PAWTUCKET_DIR && cp setup.php-dist setup.php
 
 RUN sed -i "s@DocumentRoot \/var\/www\/html@DocumentRoot \/var\/www@g" /etc/apache2/sites-available/000-default.conf
 RUN rm -rf /var/www/html
-run mkdir /$CA_PROVIDENCE_DIR/media/collectiveaccess
+RUN mkdir /$CA_PROVIDENCE_DIR/media/collectiveaccess
 RUN mkdir /$CA_PROVIDENCE_DIR/media/collectiveaccess/tilepics
-run mkdir /$CA_PROVIDENCE_DIR/app/locale/fi_FI
+RUN mkdir /$CA_PROVIDENCE_DIR/app/locale/fi_FI
 RUN ln -s /$CA_PROVIDENCE_DIR/media /$CA_PAWTUCKET_DIR/media
 
 #COPY php.ini /etc/php/7.0/cli/php.ini
